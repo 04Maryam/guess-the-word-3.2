@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  width: 100vw;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -33,10 +33,201 @@
   }
 }
 
-.card {
-  padding: 2em;
+/* Overall Container */
+.hangman-container {
+  /* display: flex; */
 }
 
-.read-the-docs {
-  color: #888;
+/* Hangman Figure Styling */
+.hangman {
+  width: 700px;
+  height: 500px;
+  position: relative;
+  margin: 0 auto;
+
+  /* border: 2px solid #000; */
+}
+/* Pole and Crossbar */
+.hangman .pole-crossbar {
+  width: 200px;
+  height: 300px;
+  border: 10px solid #000;
+  border-bottom: none;
+  border-right: none;
+  position: absolute;
+  left: 50%; /* Center the pole */
+  transform: translateX(-50%); /* Center the pole */
+}
+
+/* Rope */
+.hangman .rope {
+  width: 2px;
+  height: 30px;
+  background-color: #000;
+  position: absolute;
+  top: 0px;
+  left: 120px;
+}
+
+/* Head */
+.hangman .head {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  position: absolute;
+  top: 30px;
+  left: 97px;
+}
+
+/* Body */
+.hangman .body {
+  width: 2px;
+  height: 100px;
+  background-color: #000;
+  position: absolute;
+  top: 80px;
+  left: 120px;
+}
+
+/* Left arm */
+.hangman .left-arm {
+  width: 2px;
+  height: 70px;
+  background-color: #000;
+  transform: rotate(40deg);
+  position: absolute;
+  top: 90px;
+  left: 98px;
+}
+
+/* Right arm */
+.hangman .right-arm {
+  width: 2px;
+  height: 70px;
+  background-color: #000;
+  transform: rotate(140deg);
+  position: absolute;
+  top: 90px;
+  left: 142px;
+}
+
+/* Left leg */
+.hangman .left-leg {
+  width: 2px;
+  height: 80px;
+  background-color: #000;
+  transform: rotate(20deg);
+  position: absolute;
+  top: 175px;
+  left: 106px;
+}
+
+/* Right leg */
+.hangman .right-leg {
+  width: 2px;
+  height: 80px;
+  background-color: #000;
+  transform: rotate(160deg);
+  position: absolute;
+  top: 175px;
+  left: 134px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .hangman-container {
+    height: 300px;
+  }
+
+  .hangman {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  .hangman .pole-crossbar {
+    width: 150px;
+    height: 250px;
+  }
+
+  .hangman .head {
+    width: 40px;
+    height: 40px;
+    top: 30px;
+    left: 100px;
+  }
+
+  .hangman .body {
+    height: 80px;
+    top: 70px;
+  }
+
+  .hangman .left-arm {
+    left: 104px;
+  }
+
+  .hangman .right-arm {
+    left: 136px;
+  }
+
+  .hangman .left-arm,
+  .hangman .right-arm {
+    height: 50px;
+    top: 80px;
+  }
+
+  .hangman .left-leg {
+    left: 110px;
+  }
+
+  .hangman .right-leg {
+    left: 130px;
+  }
+
+  .hangman .left-leg,
+  .hangman .right-leg {
+    height: 60px;
+    top: 146px;
+  }
+
+  .button-container {
+    margin-bottom: 100px;
+  }
+}
+
+/* @media (max-width: 992px) {
+  .button {
+    margin-bottom: 300px;
+  }
+} */
+
+@media (max-width: 480px) {
+  .hangman {
+    width: 80%; /* Adjust further for very small screens */
+  }
+
+  .hangman .pole-crossbar {
+    width: 120px;
+    height: 200px;
+  }
+
+  .hangman .head {
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    left: 70px;
+  }
+
+  .hangman .body {
+    height: 60px;
+  }
+
+  .hangman .left-arm,
+  .hangman .right-arm {
+    height: 40px;
+  }
+
+  .hangman .left-leg,
+  .hangman .right-leg {
+    height: 50px;
+  }
 }
