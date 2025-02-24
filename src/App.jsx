@@ -151,39 +151,47 @@ export default function App() {
             </p>
 
             {!gameOver ? (
-              <Form onSubmit={handleGuess} className="mt-3">
-                <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <Form.Group className="mb-3" controlId="LetterGuessed">
-                    <Form.Label>Guess a letter:</Form.Label>
-                    <Form.Control
-                      type="text"
-                      maxLength="1"
-                      value={inputLetter}
-                      onChange={(e) =>
-                        setInputLetter(e.target.value.toUpperCase())
-                      }
-                      required
-                      // className="text-center"
-                      placeholder="Enter a letter"
-                    />
-                    <Form.Text className="text-muted">
-                      Enter a letter to guess the word. Be careful, wrong
-                      guesses reduce your chances!
-                    </Form.Text>
-                  </Form.Group>
-                  <div className="d-md-flex justify-content-md-center align-items-md-center button-container">
-                    <Button
-                      variant="primary"
-                      type="submit"
-                      className="btn button"
-                    >
-                      Guess
-                    </Button>
+              <>
+                <Form onSubmit={handleGuess} className="mt-3">
+                  <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <Form.Group className="mb-3" controlId="LetterGuessed">
+                      <Form.Label>Guess a letter:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        maxLength="1"
+                        value={inputLetter}
+                        onChange={(e) =>
+                          setInputLetter(e.target.value.toUpperCase())
+                        }
+                        required
+                        // className="text-center"
+                        placeholder="Enter a letter"
+                      />
+                      <Form.Text className="text-muted">
+                        Enter a letter to guess the word. Be careful, wrong
+                        guesses reduce your chances!
+                      </Form.Text>
+                    </Form.Group>
+                    <div className="d-md-flex justify-content-md-center align-items-md-center button-container">
+                      <Button
+                        variant="primary"
+                        type="submit"
+                        className="btn button"
+                      >
+                        Guess
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </Form>
+                </Form>
+                <p className="fw-bold fs-6">
+                  Remaining Guesses:{" "}
+                  <span className="fw-normal">
+                    {MAX_GUESSES - wrongGuesses.length}
+                  </span>
+                </p>
+              </>
             ) : (
-              <div className="mt-3">
+              <div className="mt-5">
                 <h2>
                   {win ? "You Win! 🎉" : `You Lose! The word was: ${currWord}`}
                 </h2>
@@ -192,12 +200,6 @@ export default function App() {
                 </Button>
               </div>
             )}
-            <p className="fw-bold fs-6">
-              Remaining Guesses:{" "}
-              <span className="fw-normal">
-                {MAX_GUESSES - wrongGuesses.length}
-              </span>
-            </p>
           </div>
         </div>
       </div>
